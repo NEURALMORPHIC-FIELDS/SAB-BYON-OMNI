@@ -1,0 +1,97 @@
+# SAB + BYON-OMNI v2.0 Default Configuration
+# =============================================
+
+model:
+  vocab_size: 50000
+  hidden_size: 4096
+  num_attention_heads: 64
+  num_hidden_layers: 36
+  intermediate_size: 16384
+  max_position_embeddings: 4096
+  initializer_range: 0.02
+
+model_lightweight:
+  vocab_size: 50000
+  hidden_size: 768
+  num_attention_heads: 12
+  num_hidden_layers: 6
+  intermediate_size: 3072
+  max_position_embeddings: 2048
+
+fragmergent:
+  alpha: 0.02
+  lambda: 0.2
+  omega: 2.0
+
+tdfc:
+  grid_size: 32
+  diffusion_coeff: 0.1
+  pde_steps: 50
+  dt: 0.01
+  momentum: 0.9
+  virtue_names:
+    - stoicism
+    - discernment
+    - philosophy
+    - empathy
+    - curiosity
+    - humility
+    - creativity
+    - reflexivity
+    - truthlove
+    - holographic
+
+consciousness:
+  unified_weights:
+    triadic: 0.25
+    PLV: 0.20
+    CFC: 0.15
+    Phi: 0.15
+    spectral: 0.15
+    fragmergent: 0.10
+
+training:
+  epochs: 3
+  batch_size: 4
+  gradient_accumulation_steps: 16
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  seq_len: 1024
+  num_samples: 5000
+  num_workers: 0
+  log_every_batches: 5
+
+memory:
+  holographic_shape: [16, 16, 16, 16]
+  evolutionary_layers:
+    immediate: 50
+    working: 100
+    persistent: 200
+    archetypal: 300
+  compression_target: 0.1
+
+agents:
+  rl:
+    state_size: 100
+    action_size: 5
+    alpha: 0.1
+    gamma: 0.6
+    epsilon: 0.1
+  fragmergent:
+    synergy_level: 0.3
+  memory_manager:
+    short_size: 2000
+
+godel:
+  consistency_threshold: 0.7
+  tension_threshold: 0.5
+  emergence_threshold: 20.0
+
+emergence:
+  delta_threshold: 0.3
+  coherence_threshold: 0.6
+
+icf:
+  tau_Phi: 1.0
+  kappa: [1.0, 0.5, 0.3]

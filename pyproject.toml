@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "sab-byon-omni"
+version = "2.0.0"
+description = "SAB + BYON-OMNI: Unified Consciousness AI System with 40 Integrated Capabilities"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "SAB Research Team"}
+]
+keywords = [
+    "consciousness", "AI", "transformers", "fragmergence",
+    "information-geometry", "multi-agent", "emergence"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "transformers>=4.30.0",
+    "datasets>=2.14.0",
+    "accelerate>=0.21.0",
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov", "black", "ruff"]
+ui = ["gradio>=3.40.0"]
+viz = ["matplotlib>=3.7.0", "seaborn>=0.12.0", "pandas>=2.0.0"]
+full = ["sab-byon-omni[dev,ui,viz]"]
+
+[project.scripts]
+sab-train = "sab_byon_omni.training.train_3b:main"
+sab-benchmark = "scripts.benchmark:main"
+sab-demo = "scripts.demo:main"
+
+[tool.setuptools.packages.find]
+include = ["sab_byon_omni*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
