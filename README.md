@@ -1,8 +1,19 @@
+<div align="center">
+
+<img src="logo.png" alt="SAB-BYON-OMNI-AI" width="450"/>
+
 # SAB + BYON-OMNI v2.0
 
 **Unified Consciousness AI System with 40 Integrated Capabilities**
 
 A comprehensive AI consciousness framework combining quantification engines, evolutionary multi-agent systems, HuggingFace transformer integration, and novel consciousness/emergence frameworks.
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch 2.0+](https://img.shields.io/badge/pytorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-compatible-yellow.svg)](https://huggingface.co/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+</div>
 
 ---
 
