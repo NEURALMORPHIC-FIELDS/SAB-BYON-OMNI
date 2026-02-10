@@ -8,19 +8,22 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from sab_byon_omni.model.config import MultimodalConsciousnessDataset
+from sab_byon_omni.model.config import RealMultimodalDataset
 
 
 def train_3b_rapid(sab, epochs=3, batch_size=4, grad_accum=16, seq_len=1024,
-                   log_every_batches=5, num_workers=0):
+                   log_every_batches=5, num_workers=0,
+                   target_samples=500_000, cache_dir=None, local_data_dir=None):
     """
     Train 3B model with visible progress and correct causal LM loss.
 
-    Fixes applied:
-    - Causal LM shift (shift_logits/shift_labels) for proper next-token prediction
-    - grad_accum=16 (was 64) for ~4x more frequent optimizer steps
-    - Logs every log_every_batches AND every optimizer step
-    - num_workers=0 (safe for Windows)
+    Loads real training data from HuggingFace (WikiText-103, CodeSearchNet, Wikipedia)
+    and local files from Google Drive.
+
+    Args:
+        target_samples: Number of samples to load (default 500K).
+        cache_dir: Path to cache processed dataset on Drive.
+        local_data_dir: Path to training_data/ folder on Drive.
     """
     print("\nTRAINING 3B MODEL (optimized)")
     print(f"  Config: epochs={epochs}, batch_size={batch_size}, grad_accum={grad_accum}, seq_len={seq_len}")
@@ -28,7 +31,12 @@ def train_3b_rapid(sab, epochs=3, batch_size=4, grad_accum=16, seq_len=1024,
     device = sab.llm.device
     model.to(device)
 
-    dataset = MultimodalConsciousnessDataset(num_samples=5000, max_len=seq_len)
+    dataset = RealMultimodalDataset(
+        max_len=seq_len,
+        target_samples=target_samples,
+        cache_dir=cache_dir,
+        local_data_dir=local_data_dir,
+    )
     dataloader = DataLoader(
         dataset,
         batch_size=batch_size,

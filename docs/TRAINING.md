@@ -16,7 +16,10 @@ from sab_byon_omni.core.sab_transcendent import SABTranscendentV2
 from sab_byon_omni.training.train_3b import train_3b_rapid
 
 sab = SABTranscendentV2()
-train_3b_rapid(sab, epochs=3, batch_size=4, grad_accum=16, seq_len=1024)
+train_3b_rapid(sab, epochs=3, batch_size=4, grad_accum=16, seq_len=1024,
+               target_samples=500_000,
+               cache_dir='/content/drive/MyDrive/SAB-BYON-OMNI/dataset_cache',
+               local_data_dir='/content/drive/MyDrive/SAB-BYON-OMNI/training_data')
 ```
 
 ## Training Configuration
@@ -32,7 +35,7 @@ train_3b_rapid(sab, epochs=3, batch_size=4, grad_accum=16, seq_len=1024)
 | `weight_decay` | 0.01 | L2 regularization |
 | `max_grad_norm` | 1.0 | Gradient clipping threshold |
 | `seq_len` | 1024 | Maximum sequence length |
-| `num_samples` | 5000 | Training dataset size |
+| `target_samples` | 500,000 | Training dataset size |
 
 ### Effective Batch Size
 ```
@@ -41,22 +44,28 @@ effective_batch = batch_size * gradient_accumulation_steps = 4 * 16 = 64
 
 ## Dataset
 
-### MultimodalConsciousnessDataset
+### RealMultimodalDataset
 
-Synthetic multimodal dataset with 4 data types:
+Loads real data from multiple open-source datasets via HuggingFace + local files from Google Drive.
 
-| Mode | Template | Purpose |
-|------|----------|---------|
-| `text` | "Consciousness is awareness..." | Natural language |
-| `image` | "[IMAGE] Neural activation map..." | Image metadata |
-| `doc` | "[DOC] Research paper: 'Emergent Cognition'..." | Documentation |
-| `code` | "[CODE] def fragmergent(t): return sin(2*t)..." | Code patterns |
+| Source | Library | Samples | Description |
+|--------|---------|---------|-------------|
+| WikiText-103 | `wikitext/wikitext-103-raw-v1` | ~150K | English text (articles) |
+| CodeSearchNet | `code_search_net/all` | ~200K | Code (Python, Java, JS, Go, Ruby, PHP) |
+| Wikipedia EN | `wikipedia/20220301.en` (streaming) | ~200K | English Wikipedia articles |
+| Local files | `training_data/` on Drive | variable | .txt, .json, .csv, .html, .md |
+
+### Caching
+- **Tier 1**: HuggingFace `datasets` cache on Drive (`dataset_cache/`)
+- **Tier 2**: Pre-processed JSONL file (`dataset_cache/processed_samples.jsonl`)
+- First run downloads ~10-30 min, subsequent runs load from cache instantly
 
 ### Tokenization
 - Character-level tokenizer: `<PAD>` + ASCII 32-126
 - Vocab size: 96 tokens (lightweight) / 50,000 (full)
 - Padding: Zero-padded to `max_len`
 - Labels: Copy of input_ids (autoregressive)
+- Non-ASCII characters are filtered out during text chunking
 
 ## Training Pipeline
 

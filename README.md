@@ -5,13 +5,14 @@
 # SAB + BYON-OMNI v2.1
 
 **Unified Consciousness AI System with 43 Integrated Capabilities**
+**Author Vasile Lucian Borbeleac**
 
 A comprehensive AI consciousness framework combining quantification engines, evolutionary multi-agent systems, HuggingFace transformer integration, novel consciousness/emergence frameworks, FHRSS fault-tolerant storage (Patent EP25216372.0), FCPE 73,000x compression, and 2M+ token infinite context memory.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch 2.0+](https://img.shields.io/badge/pytorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![HuggingFace](https://img.shields.io/badge/HuggingFace-compatible-yellow.svg)](https://huggingface.co/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License: Custom](https://img.shields.io/badge/license-Custom-orange.svg)](LICENSE)
 
 </div>
 
@@ -317,4 +318,10 @@ This system implements several novel and established theoretical frameworks:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Copyright (c) 2024-2026 Vasile Lucian Borbeleac / FRAGMERGENT TECHNOLOGY S.R.L.
+
+- **Personal use**: FREE
+- **Academic/Research**: FREE (with citation)
+- **Commercial/Enterprise**: Requires license (contact v.l.borbel@gmail.com)
+
+See [LICENSE](LICENSE) for full terms.

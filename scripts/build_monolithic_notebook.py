@@ -222,32 +222,6 @@ def update_notebook():
             print(f"Updated cell {i}: Section 3 markdown")
             break
 
-    # Find cells 8-18 (the placeholder cells to remove)
-    # They're identified by "3.1:", "3.2:", ..., "3.11:" or "PASTE" patterns
-    cells_to_remove = []
-    monolithic_insert_idx = None
-
-    for i, cell in enumerate(cells):
-        source = ''.join(cell.get('source', []))
-        if cell.get('cell_type', 'code') == 'code':
-            # Cell 7 (write_source helper) - keep but update
-            if "def write_source(relative_path, code):" in source and "write_source() helper ready" in source:
-                continue
-            # Cell 8-18: placeholder cells
-            if ('--- 3.' in source and 'PASTE' in source.upper()) or \
-               ('Uncomment and paste' in source) or \
-               ("write_source('sab_byon_omni/" in source and 'PASTE' in source.upper()):
-                if monolithic_insert_idx is None:
-                    monolithic_insert_idx = i
-                cells_to_remove.append(i)
-
-    print(f"Found {len(cells_to_remove)} placeholder cells to replace at indices: {cells_to_remove}")
-    print(f"Monolithic cell will be inserted at index: {monolithic_insert_idx}")
-
-    # Remove placeholder cells (in reverse order to preserve indices)
-    for idx in sorted(cells_to_remove, reverse=True):
-        cells.pop(idx)
-
     # Create the monolithic code cell
     monolithic_cell = {
         'cell_type': 'code',
@@ -259,27 +233,48 @@ def update_notebook():
         'source': [cell_source]
     }
 
-    # Insert at the correct position
-    if monolithic_insert_idx is not None:
-        cells.insert(monolithic_insert_idx, monolithic_cell)
-        print(f"Inserted monolithic cell at index {monolithic_insert_idx}")
-    else:
-        print("WARNING: Could not find insertion point, appending after cell 7")
-        # Find cell 7 (write_source helper)
+    # Strategy 1: Replace existing monolithic cell (by metadata ID)
+    replaced = False
+    for i, cell in enumerate(cells):
+        if cell.get('metadata', {}).get('id') == 'cell-monolithic-source':
+            cells[i] = monolithic_cell
+            print(f"Replaced existing monolithic cell at index {i}")
+            replaced = True
+            break
+
+    if not replaced:
+        # Strategy 2: Find and remove placeholder cells, insert monolithic
+        cells_to_remove = []
+        monolithic_insert_idx = None
+
         for i, cell in enumerate(cells):
             source = ''.join(cell.get('source', []))
-            if "write_source() helper ready" in source:
-                cells.insert(i + 1, monolithic_cell)
-                print(f"Inserted after write_source helper at index {i + 1}")
-                break
+            if cell.get('cell_type', 'code') == 'code':
+                if "def write_source(relative_path, code):" in source and "write_source() helper ready" in source:
+                    continue
+                if ('--- 3.' in source and 'PASTE' in source.upper()) or \
+                   ('Uncomment and paste' in source) or \
+                   ("write_source('sab_byon_omni/" in source and 'PASTE' in source.upper()):
+                    if monolithic_insert_idx is None:
+                        monolithic_insert_idx = i
+                    cells_to_remove.append(i)
 
-    # Also remove cell 7 (write_source helper) since it's now included in monolithic cell
-    for i, cell in enumerate(cells):
-        source = ''.join(cell.get('source', []))
-        if "def write_source(relative_path, code):" in source and "write_source() helper ready" in source:
-            cells.pop(i)
-            print(f"Removed old write_source helper cell at index {i}")
-            break
+        for idx in sorted(cells_to_remove, reverse=True):
+            cells.pop(idx)
+
+        if monolithic_insert_idx is not None:
+            cells.insert(monolithic_insert_idx, monolithic_cell)
+            print(f"Inserted monolithic cell at index {monolithic_insert_idx}")
+        else:
+            print("WARNING: Could not find insertion point")
+
+        # Remove old write_source helper if present
+        for i, cell in enumerate(cells):
+            source = ''.join(cell.get('source', []))
+            if "def write_source(relative_path, code):" in source and "write_source() helper ready" in source:
+                cells.pop(i)
+                print(f"Removed old write_source helper cell at index {i}")
+                break
 
     # Update training and benchmark cells: v2.0 -> v2.1
     for i, cell in enumerate(cells):

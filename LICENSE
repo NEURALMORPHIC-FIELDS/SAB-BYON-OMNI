@@ -1,21 +1,77 @@
-MIT License
+SAB-BYON-OMNI License
+Copyright (c) 2024-2026 Vasile Lucian Borbeleac / FRAGMERGENT TECHNOLOGY S.R.L.
+Cluj-Napoca, Romania
+Contact: v.l.borbel@gmail.com
 
-Copyright (c) 2024-2026 SAB Research Team
+================================================================================
+TERMS AND CONDITIONS
+================================================================================
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. PERSONAL USE
+   This software is provided FREE OF CHARGE for personal, non-commercial use.
+   Individuals may use, copy, and modify the software for personal projects,
+   learning, experimentation, and hobby purposes without any fee or prior
+   authorization.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. ACADEMIC & RESEARCH USE
+   This software is FREE for academic and scientific research purposes,
+   provided that:
+   (a) Any publication, paper, thesis, or presentation that uses this software
+       or is derived from it MUST include the following citation:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+       Borbeleac, V.L. (2024-2026). SAB-BYON-OMNI: Unified Consciousness
+       System. FRAGMERGENT TECHNOLOGY S.R.L.
+       https://github.com/[repository-url]
+
+   (b) The copyright notice and this license shall be included in all copies
+       or substantial portions of the software used in research.
+
+3. COMMERCIAL USE
+   Any commercial use of this software — including but not limited to
+   incorporation into commercial products, use in commercial services,
+   deployment for revenue-generating activities, or use within a for-profit
+   organization — requires a separate commercial license agreement.
+
+   To obtain a commercial license, contact:
+       Vasile Lucian Borbeleac
+       FRAGMERGENT TECHNOLOGY S.R.L.
+       E-mail: v.l.borbel@gmail.com
+
+   Use of this software in a commercial context without a valid commercial
+   license is strictly prohibited.
+
+4. REDISTRIBUTION
+   Redistribution of this software, in source or binary form, with or without
+   modification, is permitted provided that:
+   (a) This license file is included unmodified in all redistributed copies.
+   (b) Redistributed versions clearly indicate any modifications made.
+   (c) Redistribution does not grant commercial usage rights.
+
+5. PATENTS
+   This software incorporates technology covered by patent application
+   EP25216372.0 (FHRSS - Fractal Holographic Resonance Storage System).
+   The personal and research use permissions granted above include a limited,
+   non-exclusive, non-transferable patent license for those specific uses only.
+   Commercial patent licensing must be negotiated separately.
+
+6. DISCLAIMER OF WARRANTY
+   THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+
+7. GOVERNING LAW
+   This license shall be governed by and construed in accordance with the
+   laws of Romania. Any disputes arising under this license shall be subject
+   to the exclusive jurisdiction of the courts of Cluj-Napoca, Romania.
+
+================================================================================
+SUMMARY
+================================================================================
+  Personal use .......... FREE
+  Academic/Research ...... FREE (with citation)
+  Commercial/Enterprise .. REQUIRES LICENSE (contact v.l.borbel@gmail.com)
+================================================================================

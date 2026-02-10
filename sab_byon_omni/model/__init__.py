@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Model components for SAB + BYON-OMNI."""
 
-from sab_byon_omni.model.config import MultimodalConsciousnessDataset
+from sab_byon_omni.model.config import RealMultimodalDataset, MultimodalConsciousnessDataset
 from sab_byon_omni.model.omni_agi_nexus import OmniAGITrainer, ByonOmniLLMBrain
 
 try:
@@ -14,6 +14,7 @@ __all__ = [
     "OmniAGIConfig",
     "OmniAGINexusConfig",
     "OmniAGINexusModel",
+    "RealMultimodalDataset",
     "MultimodalConsciousnessDataset",
     "OmniAGITrainer",
     "ByonOmniLLMBrain",
