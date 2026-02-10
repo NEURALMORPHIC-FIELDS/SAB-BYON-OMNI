@@ -267,6 +267,17 @@ This system implements several novel and established theoretical frameworks:
 7. **Semantic Photon Theory** - Quantum-inspired semantic carriers
 8. **Holographic Memory** - 4D interference pattern storage
 
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Architecture Guide](docs/ARCHITECTURE.md) | System overview, module map, processing pipeline |
+| [Consciousness Framework](docs/CONSCIOUSNESS.md) | All 8 theoretical frameworks in depth |
+| [Training Guide](docs/TRAINING.md) | Training configuration, pipeline, checkpointing |
+| [Benchmarks & Evaluation](docs/BENCHMARKS.md) | Industrial LLM benchmark suite & scoring |
+| [API Reference](docs/API_REFERENCE.md) | Full API for all modules and classes |
+| [Colab Guide](docs/COLAB_GUIDE.md) | Step-by-step Google Colab setup |
+
 ## GPU Requirements
 
 | Configuration | VRAM | Use Case |
