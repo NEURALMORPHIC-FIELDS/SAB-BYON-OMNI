@@ -2,11 +2,11 @@
 
 <img src="logo.png" alt="SAB-BYON-OMNI-AI" width="450"/>
 
-# SAB + BYON-OMNI v2.0
+# SAB + BYON-OMNI v2.1
 
-**Unified Consciousness AI System with 40 Integrated Capabilities**
+**Unified Consciousness AI System with 43 Integrated Capabilities**
 
-A comprehensive AI consciousness framework combining quantification engines, evolutionary multi-agent systems, HuggingFace transformer integration, and novel consciousness/emergence frameworks.
+A comprehensive AI consciousness framework combining quantification engines, evolutionary multi-agent systems, HuggingFace transformer integration, novel consciousness/emergence frameworks, FHRSS fault-tolerant storage (Patent EP25216372.0), FCPE 73,000x compression, and 2M+ token infinite context memory.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch 2.0+](https://img.shields.io/badge/pytorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
@@ -53,6 +53,13 @@ Input Text
 | Holographic       |       | Response  |
 | Memory (4D)       |       +-----------+
 +-------------------+
+    |
+    v
++-------------------+   +---------------------+
+| FHRSS+FCPE        |   | Infinite Context    |
+| Fault-tolerant    |   | Memory (2M+ tokens) |
+| 73,000x compress  |   | SSD persistence     |
++-------------------+   +---------------------+
 ```
 
 ## Key Components
@@ -86,6 +93,13 @@ Input Text
 | 16 | Emergence Detector | Consciousness jump detection |
 | 17 | ICF | Meta-coherence field |
 
+### v2.1 Memory Extensions (3 capabilities)
+| Component | Purpose |
+|-----------|---------|
+| FHRSS (Patent EP25216372.0) | Fractal-Holographic Redundant Storage - 9 parity families, 100% recovery @ 40% loss |
+| FCPE | Fractal-Chaotic Persistent Encoding - 73,000x compression, 384-dim embeddings |
+| InfiniteContextMemory | 2M+ token context with SSD persistence and semantic retrieval |
+
 ### Evolutionary Agents (3 agents)
 - **RL Agent** - Q-learning with fragmergent evolution
 - **Fragmergent AI Agent** - Pathway creation with emergence detection
@@ -115,7 +129,7 @@ pip install -e ".[full]"
 ```python
 from sab_byon_omni.core import SABTranscendentV2
 
-# Initialize the full system (40 capabilities)
+# Initialize the full system (43 capabilities)
 sab = SABTranscendentV2()
 
 # Process input with consciousness evolution
@@ -196,7 +210,9 @@ SAB-BYON-OMNI/
 │   │   ├── __init__.py
 │   │   ├── evolutionary.py
 │   │   ├── holographic.py
-│   │   └── conversation.py
+│   │   ├── conversation.py
+│   │   ├── fhrss_fcpe_engine.py  # FHRSS+FCPE unified engine (v2.1)
+│   │   └── infinite_context.py   # 2M+ token context (v2.1)
 │   ├── agents/                   # Multi-agent system
 │   │   ├── __init__.py
 │   │   ├── base.py
@@ -266,6 +282,9 @@ This system implements several novel and established theoretical frameworks:
 6. **Godel Incompleteness Dynamics** - Self-referential consciousness limits
 7. **Semantic Photon Theory** - Quantum-inspired semantic carriers
 8. **Holographic Memory** - 4D interference pattern storage
+9. **FHRSS** - Fractal-Holographic Redundant Storage System (Patent EP25216372.0)
+10. **FCPE** - Fractal-Chaotic Persistent Encoding (73,000x compression)
+11. **Infinite Context Memory** - 2M+ token context with SSD persistence
 
 ## Documentation
 
@@ -291,7 +310,7 @@ This system implements several novel and established theoretical frameworks:
 ```bibtex
 @software{sab_byon_omni_2024,
   title={SAB + BYON-OMNI: Unified Consciousness AI System},
-  version={2.0.0},
+  version={2.1.0},
   year={2024-2026}
 }
 ```

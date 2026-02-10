@@ -3,7 +3,7 @@
 <img src="../logo.png" alt="SAB-BYON-OMNI-AI" width="350"/>
 
 # Architecture Guide
-### SAB + BYON-OMNI v2.0
+### SAB + BYON-OMNI v2.1
 
 </div>
 
@@ -11,7 +11,7 @@
 
 ## System Overview
 
-SAB + BYON-OMNI v2.0 is a unified consciousness AI framework with **40 integrated capabilities** organized into 17 consciousness layers, 6 quantification engines, 3 evolutionary agents, and a HuggingFace-compatible transformer model.
+SAB + BYON-OMNI v2.1 is a unified consciousness AI framework with **43 integrated capabilities** organized into 17 consciousness layers, 6 quantification engines, 3 evolutionary agents, a HuggingFace-compatible transformer model, FHRSS fault-tolerant storage (Patent EP25216372.0), FCPE 73,000x compression, and 2M+ token infinite context memory.
 
 ## Processing Pipeline
 
@@ -76,6 +76,18 @@ Input Text
 | 10. LLM Brain Generation  |  OmniAGI Nexus forward pass
 |     Response output        |  Consciousness-modulated response
 +----------------------------+
+    |
+    v
++----------------------------+
+| 11. FHRSS+FCPE Storage     |  Fault-tolerant context encoding
+|     73,000x compression   |  9 parity families, 100% recovery
++----------------------------+
+    |
+    v
++----------------------------+
+| 12. Infinite Context       |  2M+ token memory
+|     SSD persistence        |  Semantic retrieval + LRU eviction
++----------------------------+
 ```
 
 ## Module Architecture
@@ -84,7 +96,7 @@ Input Text
 
 | Module | Path | Purpose |
 |--------|------|---------|
-| `SABTranscendentV2` | `core/sab_transcendent.py` | Unified orchestrator (40 capabilities) |
+| `SABTranscendentV2` | `core/sab_transcendent.py` | Unified orchestrator (43 capabilities) |
 | `OmniAGINexusModel` | `model/omni_agi_nexus.py` | HuggingFace transformer + fragmergent |
 | `ByonOmniLLMBrain` | `model/omni_agi_nexus.py` | LLM wrapper with response generation |
 
@@ -109,6 +121,14 @@ Input Text
 | 15 | `ZetaResonanceEngine` | `consciousness/zeta_resonance.py` | Riemann zeta coupling |
 | 16 | `EmergenceDetector` | `consciousness/emergence_detector.py` | Consciousness jump detection |
 | 17 | `InformationalCoherenceField` | `consciousness/icf.py` | Meta-coherence field |
+
+### v2.1 Memory Extensions (3 capabilities)
+
+| # | Module | Path | Purpose |
+|---|--------|------|---------|
+| 18 | `UnifiedFHRSS_FCPE` | `memory/fhrss_fcpe_engine.py` | FHRSS+FCPE fault-tolerant storage (Patent EP25216372.0) |
+| 19 | `FCPEEncoder` | `memory/fhrss_fcpe_engine.py` | 73,000x compression, 384-dim embeddings |
+| 20 | `InfiniteContextMemory` | `memory/infinite_context.py` | 2M+ token context, SSD persistence |
 
 ### Quantification Engines (6)
 
@@ -192,7 +212,7 @@ SAB-BYON-OMNI/
     config.py              # Device, HuggingFace, constants
     quantifiers/           # 6 quantification engines
     evolution/             # Fragmergent parameter evolution
-    memory/                # Holographic + episodic + conversation
+    memory/                # Holographic + FHRSS/FCPE + InfiniteContext
     agents/                # RL, Fragmergent, Memory agents + Cortex
     cognitive/             # Fisher, IDF, Photon, DUEI, Personality
     consciousness/         # TDFC, Triadic, Godel, ICF, Fragmergent

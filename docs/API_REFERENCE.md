@@ -3,7 +3,7 @@
 <img src="../logo.png" alt="SAB-BYON-OMNI-AI" width="350"/>
 
 # API Reference
-### SAB + BYON-OMNI v2.0
+### SAB + BYON-OMNI v2.1
 
 </div>
 
@@ -13,7 +13,7 @@
 
 ### `SABTranscendentV2`
 
-Main orchestrator class. Initializes all 40 capabilities.
+Main orchestrator class. Initializes all 43 capabilities.
 
 ```python
 from sab_byon_omni.core.sab_transcendent import SABTranscendentV2
@@ -23,7 +23,7 @@ sab = SABTranscendentV2()
 
 #### `process_input(text: str, steps: int = 50) -> Dict`
 
-Complete v2.0 processing with all 40 capabilities.
+Complete v2.1 processing with all 43 capabilities.
 
 **Parameters:**
 - `text` - Input text to process
@@ -45,6 +45,8 @@ Complete v2.0 processing with all 40 capabilities.
 | `eag_metrics` | Dict | Spectral analysis results |
 | `icf_metrics` | Dict | ICF field metrics |
 | `suppression_active` | bool | ICF suppression state |
+| `fhrss_stats` | Dict | FHRSS storage statistics |
+| `infinite_context_stats` | Dict | Infinite context memory stats |
 
 ---
 
@@ -259,3 +261,113 @@ ent = EntropyQuantifier()
 ent.update_score(0, "token", [])
 metrics = ent.get_diversity_metrics()
 ```
+
+---
+
+## FHRSS + FCPE (v2.1)
+
+### `UnifiedFHRSS_FCPE`
+
+Combined FHRSS fault-tolerant storage + FCPE compression engine.
+
+```python
+from sab_byon_omni.memory.fhrss_fcpe_engine import (
+    UnifiedFHRSS_FCPE, FCPEConfig, FHRSSConfig
+)
+
+engine = UnifiedFHRSS_FCPE(
+    fcpe_config=FCPEConfig(dim=384, num_layers=5, lambda_s=0.5),
+    fhrss_config=FHRSSConfig(subcube_size=8, profile="FULL")
+)
+```
+
+#### `encode_context(vector, metadata) -> str`
+Encode a context vector with FCPE compression + FHRSS parity. Returns context ID.
+
+#### `retrieve_similar(query_vector, top_k=5) -> List[Dict]`
+Retrieve similar contexts by cosine similarity on FCPE embeddings.
+
+#### `test_recovery(loss_fraction=0.4) -> Dict`
+Test FHRSS fault recovery at given data loss percentage.
+
+#### `get_stats() -> Dict`
+Returns storage statistics (total contexts, compression ratio, parity families).
+
+---
+
+### `FCPEConfig`
+
+```python
+FCPEConfig(dim=384, num_layers=5, lambda_s=0.5)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `dim` | int | 384 | Output embedding dimension |
+| `num_layers` | int | 5 | Number of fractal-chaotic layers |
+| `lambda_s` | float | 0.5 | Chaotic jitter strength |
+
+---
+
+### `FHRSSConfig`
+
+```python
+FHRSSConfig(subcube_size=8, profile="FULL")
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `subcube_size` | int | 8 | Subcube dimension (8x8x8) |
+| `profile` | str | "FULL" | Parity profile ("FULL" = 9 families) |
+
+---
+
+## Infinite Context Memory (v2.1)
+
+### `InfiniteContextMemory`
+
+2M+ token context system with FCPE compression and SSD persistence.
+
+```python
+from sab_byon_omni.memory.infinite_context import (
+    InfiniteContextMemory, InfiniteContextConfig
+)
+
+ctx = InfiniteContextMemory(InfiniteContextConfig(
+    fcpe_dim=384, fcpe_layers=5,
+    max_memory_entries=100000, auto_persist=False
+))
+```
+
+#### `add_text(text, metadata=None) -> str`
+Add text to infinite context memory. Returns entry ID.
+
+#### `retrieve_by_text(query, top_k=5) -> List[Dict]`
+Retrieve similar contexts by text query (uses FCPE embeddings).
+
+#### `get_stats() -> Dict`
+Returns memory statistics (total entries, token count, compression ratio).
+
+#### `persist_to_disk(path) -> bool`
+Save all contexts to SSD with zlib compression and SHA-256 integrity.
+
+#### `load_from_disk(path) -> bool`
+Load contexts from SSD storage.
+
+---
+
+### `InfiniteContextConfig`
+
+```python
+InfiniteContextConfig(
+    fcpe_dim=384, fcpe_layers=5,
+    max_memory_entries=100000, auto_persist=False
+)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `fcpe_dim` | int | 384 | FCPE embedding dimension |
+| `fcpe_layers` | int | 5 | FCPE encoder layers |
+| `max_memory_entries` | int | 100000 | Maximum stored contexts |
+| `auto_persist` | bool | False | Auto-save to SSD |

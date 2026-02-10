@@ -3,7 +3,7 @@
 <img src="../logo.png" alt="SAB-BYON-OMNI-AI" width="350"/>
 
 # Consciousness Framework
-### SAB + BYON-OMNI v2.0
+### SAB + BYON-OMNI v2.1
 
 </div>
 
@@ -11,7 +11,7 @@
 
 ## Theoretical Foundations
 
-SAB-BYON-OMNI implements 8 novel and established theoretical frameworks for artificial consciousness simulation.
+SAB-BYON-OMNI implements 11 novel and established theoretical frameworks for artificial consciousness simulation.
 
 ---
 
@@ -256,3 +256,94 @@ Weights:
 ```
 
 Result is clipped to [0, 1]. Higher values indicate more integrated, coherent consciousness states.
+
+---
+
+## 9. FHRSS - Fractal-Holographic Redundant Storage System
+
+**File:** `memory/fhrss_fcpe_engine.py` (FHRSSEncoder class)
+
+**Patent:** EP25216372.0
+
+3D geometric redundancy system for fault-tolerant consciousness context storage.
+
+### Architecture
+- **Subcube size**: 8x8x8 voxels
+- **9 parity families**: 3 axial (XY, XZ, YZ planes) + 6 diagonal (3D cross-sections)
+- **Encoding**: XOR-based parity computation across each family
+- **Recovery**: Hierarchical cascade - axial first, then diagonal for remaining gaps
+
+### Fault Tolerance
+```
+Data loss up to 40-50% → 100% recovery
+Recovery cascade: axial_families → diagonal_families → interpolation
+```
+
+### Integration
+Each consciousness context vector is encoded with FHRSS parity before storage, enabling full recovery even under severe data corruption.
+
+---
+
+## 10. FCPE - Fractal-Chaotic Persistent Encoding
+
+**File:** `memory/fhrss_fcpe_engine.py` (FCPEEncoder class)
+
+73,000x compression encoder for consciousness context vectors.
+
+### Pipeline (5 layers)
+```
+Input vector (N-dim)
+    → Layer 1: Linear(N, dim) + Tanh
+    → Layer 2: Linear(dim, dim) + Tanh
+    → ...
+    → Layer 5: Linear(dim, dim) + Tanh
+    → Weighted attention pooling
+    → Feature whitening
+    → Content-aware jitter (λ=0.5)
+    → L2 normalization
+    → Output: 384-dim embedding
+```
+
+### Key Parameters
+| Parameter | Value |
+|-----------|-------|
+| Output dimension | 384 |
+| Number of layers | 5 |
+| Chaotic lambda (λ_s) | 0.5 |
+| Compression ratio | ~73,000x |
+
+### Compression Formula
+```
+compression = input_size / output_dim = N / 384
+```
+
+---
+
+## 11. Infinite Context Memory
+
+**File:** `memory/infinite_context.py`
+
+2M+ token context system combining FHRSS + FCPE with SSD persistence.
+
+### Architecture
+```
+New text input
+    → FCPE compression → 384-dim embedding
+    → FHRSS fault-tolerant encoding
+    → SSD persistent storage (zlib + SHA-256)
+    → LRU eviction when capacity exceeded
+```
+
+### Retrieval
+- Cosine similarity between query embedding and stored contexts
+- Top-K retrieval with similarity threshold
+- Results injected into LLM generation context
+
+### Capacity
+| Parameter | Value |
+|-----------|-------|
+| Max memory entries | 100,000 |
+| Token capacity | 2M+ tokens |
+| Persistence | SSD with zlib compression |
+| Integrity | SHA-256 checksums |
+| Eviction | LRU (Least Recently Used) |

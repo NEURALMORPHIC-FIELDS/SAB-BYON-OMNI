@@ -3,7 +3,7 @@
 <img src="../logo.png" alt="SAB-BYON-OMNI-AI" width="350"/>
 
 # Google Colab Guide
-### SAB + BYON-OMNI v2.0
+### SAB + BYON-OMNI v2.1
 
 </div>
 
@@ -43,7 +43,7 @@ Creates the complete project directory tree:
     config.py
     quantifiers/    (9 files)
     evolution/      (5 files)
-    memory/         (5 files)
+    memory/         (7 files, incl. FHRSS/FCPE + InfiniteContext)
     agents/         (6 files)
     cognitive/      (6 files)
     consciousness/  (9 files)
@@ -64,29 +64,26 @@ Installs all packages:
 - lm-eval (EleutherAI benchmark harness)
 - rouge-score, nltk, sacrebleu, scikit-learn
 
-### Section 3: Source Code
+### Section 3: Source Code (Monolithic Deployment)
 
-**This is where you paste your code.** Each cell has a `write_source()` call.
+**v2.1**: All 51 source files are deployed automatically in a single monolithic cell. No manual code pasting required.
 
-**How to paste a file:**
-1. Open the cell for the module (e.g., "3.1: sab_byon_omni/config.py")
-2. Replace the placeholder text between `r'''` and `'''` with your code
-3. Run the cell - it writes the file to disk
+**What happens:**
+1. A single cell contains all 51 source files (~6000 lines) embedded as `write_source()` calls
+2. Running this cell writes the entire codebase to disk automatically
+3. All modules are available immediately after execution
 
-**Order matters!** Paste files in this order:
-1. `config.py` (device setup)
-2. `__init__.py` (main package)
-3. `quantifiers/` (all 9 files)
-4. `evolution/` (all 5 files)
-5. `memory/` (all 5 files)
-6. `agents/` (all 6 files)
-7. `cognitive/` (all 6 files)
-8. `consciousness/` (all 9 files)
-9. `model/` (all 3 files)
-10. `training/` (all 2 files)
-11. `core/` (all 2 files)
-
-After pasting all files, run cell **3.12: VERIFY ALL IMPORTS** to confirm everything works.
+**Files deployed (51 total):**
+- `config.py` + `__init__.py` (2 files)
+- `quantifiers/` (9 files)
+- `evolution/` (5 files)
+- `memory/` (7 files, including FHRSS/FCPE and InfiniteContext)
+- `agents/` (6 files)
+- `cognitive/` (6 files)
+- `consciousness/` (9 files)
+- `model/` (3 files)
+- `training/` (2 files)
+- `core/` (2 files)
 
 ### Section 4: Training
 
@@ -142,9 +139,8 @@ Runs 7 industrial LLM benchmarks:
 - Use the lightweight model config (default)
 
 ### "Import failed"
-- Check that all source files are pasted in Section 3
-- Run cells in order (config.py first)
-- Run cell 3.12 to see the specific import error
+- Ensure the monolithic Section 3 cell ran successfully
+- Check output for any write errors
 
 ### "Module not found"
 - Ensure Section 1 (File System) was run first

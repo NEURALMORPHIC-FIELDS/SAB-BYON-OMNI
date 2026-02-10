@@ -3,7 +3,7 @@
 <img src="../logo.png" alt="SAB-BYON-OMNI-AI" width="350"/>
 
 # Benchmarks & Evaluation
-### SAB + BYON-OMNI v2.0
+### SAB + BYON-OMNI v2.1
 
 </div>
 
